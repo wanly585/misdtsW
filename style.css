@@ -1,0 +1,536 @@
+/* Layout general */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap; /* permite que los elementos se acomoden en pantallas pequeñas */
+  gap: 40px;
+  align-items: flex-start;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #00ffcc;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #00ffcc;
+  box-shadow: 0 2px 6px rgba(0, 255, 204, 0.3);
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+}
+
+
+
+.datos-section {
+  flex: 2 1 400px;   /* ocupa espacio como la lista */
+  display: flex;
+  flex-direction: column;
+}
+
+.datos-titulo {
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.6rem;
+    color: #00ffcc;
+    margin-bottom: 15px;
+    text-align: left;
+    border-bottom: 2px solid #00ffcc;
+    padding-bottom: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .datos-titulo {
+    font-size: 1.7rem;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .datos-titulo {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 820px) {
+  .datos-section {
+    width: 100%;          /* ocupa todo el ancho */
+    margin-top: 20px;     /* se separa del generador */
+  }
+
+  #searchInput {
+    max-width: 100%;      /* se adapta al ancho del contenedor */
+  }
+}
+
+@media (max-width: 480px) {
+  #searchInput {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+#searchInput {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px;
+  margin: 0 auto 15px auto;
+  display: block;
+  border: 1px solid #00ffcc;
+  border-radius: 4px;
+  background: #1e1e1e;
+  color: #e0e0e0;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+#searchInput:focus {
+  box-shadow: 0 0 8px #00ffcc;
+}
+
+
+
+
+
+
+
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 300px; /* ocupa mínimo 300px y se adapta */
+  background: #1e1e1e;
+  padding: 20px;
+  margin-bottom: 90px;
+  border-radius: 8px;
+  border: 1px solid #00ffcc;
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+  overflow-y: auto;
+  max-height: 59vh;       /* nunca pasa del 80% de la pantalla */
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #cccccc;
+}
+
+input, textarea {
+  margin-top: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background: #2a2a2a;
+  color: #e0e0e0;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  box-shadow: 0 0 8px #00ffcc;
+}
+
+button {
+  margin-top: 15px;
+  padding: 8px 12px;
+  background: #00ffcc;
+  color: #121212;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #00cca3;
+  transform: scale(1.05);
+}
+
+/* Lista */
+ul {
+  
+  padding: 0;
+  list-style: none;
+  flex: 2 1 400px; /* ocupa más espacio en pantallas grandes */
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e1e1e;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 3px solid #00ffcc;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* permite que el contenido se acomode en móviles */
+}
+
+
+
+.vault-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*aqui va el generador*/
+
+
+.password-generator-section {
+    background: #1e1e1e;
+    border: 1px solid rgba(0, 255, 204, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    font-family: 'Segoe UI', sans-serif;
+    margin-top: 20px; /* asegura que quede debajo del formulario */
+    box-sizing: border-box;
+}
+
+.gen-label {
+    color: #888;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.gen-input-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.gen-input {
+    width: 100%;
+    box-sizing: border-box;
+    background: #121212;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 12px;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.gen-input:focus {
+    border-color: #00ffcc;
+}
+
+.gen-strength-dot {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #444;
+    transition: background 0.4s;
+}
+
+.gen-button {
+    width: 100%;
+    background: #00ffcc;
+    color: #121212;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.gen-button:hover {
+    opacity: 0.9;
+}
+
+.gen-results {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gen-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: monospace;
+    color: #00ffcc;
+    font-size: 14px;
+}
+
+.gen-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.gen-copy-mini,
+.gen-delete-mini {
+    background: transparent;
+    border: 1px solid #444;
+    color: #888;
+    font-size: 10px;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.gen-copy-mini:hover,
+.gen-delete-mini:hover {
+    border-color: #00ffcc;
+    color: #00ffcc;
+}
+
+
+@media (max-width: 480px) {
+  .password-generator-section {
+    max-width: 100%;
+    padding: 15px;
+  }
+  .gen-input {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+
+
+
+
+.info {
+  font-size: 14px;
+  line-height: 1.4;
+  flex: 1 1 250px;
+  word-wrap: break-word;       /* fuerza salto de línea */
+  overflow-wrap: break-word;   /* asegura que no se rompa el layout */
+  white-space: normal;         /* permite saltos de línea */
+  max-width: 100%;             /* nunca se pasa del ancho de la card */
+  max-height: 150px;           /* límite de altura para notas largas */
+  overflow-y: auto;            /* scroll interno si la nota es muy larga */
+}
+
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+
+
+.copy-btn {
+    margin-bottom: 30px;
+  background: none;
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.copy-btn:hover {
+  background: #00ffcc;
+  color: #121212;
+}
+
+/* Responsive: en pantallas pequeñas se apilan */
+/* Ajustes para móviles: reducir espacio libre en las cards */
+@media (max-width: 768px) {
+  li {
+    padding: 8px;          /* menos espacio interno */
+    margin-bottom: 12px;   /* menos separación entre cards */
+  }
+
+  .info {
+    margin-bottom: 6px;    /* menos espacio debajo de la info */
+    font-size: 13px;       /* texto más compacto */
+    line-height: 1.3;
+  }
+
+  .actions {
+    margin-top: 4px;       /* botones más pegados a la info */
+  }
+
+  .copy-btn {
+    margin-bottom: 30px;      /* elimina el espacio sobrante */
+    font-size: 11px;       /* más compacto */
+    padding: 3px 6px;      /* igual que eliminar */
+  }
+
+  .delete-btn {
+    margin-bottom: 0;      /* elimina el espacio extra debajo */
+    font-size: 11px;
+    padding: 3px 6px;      /* botones más pequeños */
+  }
+}
+
+@media (max-width: 480px) {
+  li {
+    padding: 6px;
+    margin-bottom: 8px;
+  }
+
+  .info {
+    font-size: 12px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .actions {
+    margin-top: 2px;
+  }
+
+  .copy-btn,
+  .delete-btn {
+    font-size: 10px;
+    padding: 2px 5px;
+  }
+}
+
+
+
+
+.delete-btn {
+  margin-bottom: 30px;
+  background: none;
+  border: 1px solid #ff0800;
+  color: #ff0000;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background: #ff4444;
+  color: #121212;              /* texto oscuro sobre fondo rojo */
+}
+
+
+
+
+
+#lockScreen {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 18, 0.6); /* fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  /* efecto de desenfoque */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* soporte en Safari */
+}
+
+.lock-card {
+  background: rgba(30, 30, 30, 0.85); /* card con transparencia */
+  border: 1px solid #00ffcc;
+  border-radius: 12px;
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,255,204,0.3);
+  max-width: 320px;
+  width: 100%;
+}
+
+.lock-card h2 {
+  color: #00ffcc;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.lock-card input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #121212;
+  color: #e0e0e0;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.lock-card input:focus {
+  border-color: #00ffcc;
+  box-shadow: 0 0 8px #00ffcc;
+}
+
+.lock-card button {
+  width: 100%;
+  padding: 12px;
+  background: #00ffcc;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #121212;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.lock-card button:hover {
+  background: #00cca3;
+  transform: scale(1.05);
+}
+
+#errorMsg {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+
+
+
+
+
